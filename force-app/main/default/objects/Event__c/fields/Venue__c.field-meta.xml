@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Venue__c</fullName>
+    <description>Venue booked for the event. The venue is marked as Booked when the event is confirmed.</description>
+    <label>Venue</label>
+    <referenceTo>Venue__c</referenceTo>
+    <relationshipLabel>Events</relationshipLabel>
+    <relationshipName>Events</relationshipName>
+    <type>Lookup</type>
+</CustomField>
+

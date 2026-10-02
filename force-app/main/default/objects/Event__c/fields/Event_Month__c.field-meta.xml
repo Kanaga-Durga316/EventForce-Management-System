@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Month__c</fullName>
+    <description>Year and month of the event date (YYYY-MM), used to group the Upcoming Events by Month report.</description>
+    <formula>TEXT(YEAR(Event_Date__c))&amp;&quot;-&quot;&amp;RIGHT(&quot;0&quot;&amp;TEXT(MONTH(Event_Date__c)),2)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Event Month</label>
+    <length>255</length>
+    <type>Text</type>
+</CustomField>
+

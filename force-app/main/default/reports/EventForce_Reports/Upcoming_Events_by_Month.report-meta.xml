@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <column>
+            <columnTitle>Event Name</columnTitle>
+            <columnType>TEXT</columnType>
+            <field>Event__c.Name</field>
+        </column>
+        <column>
+            <columnTitle>Event Date</columnTitle>
+            <columnType>DATE</columnType>
+            <field>Event__c.Event_Date__c</field>
+        </column>
+        <column>
+            <columnTitle>Status</columnTitle>
+            <columnType>PICKLIST</columnType>
+            <field>Event__c.Status__c</field>
+        </column>
+        <column>
+            <columnTitle>Client</columnTitle>
+            <columnType>REF</columnType>
+            <field>Event__c.Client__c</field>
+        </column>
+        <column>
+            <columnTitle>Venue</columnTitle>
+            <columnType>REF</columnType>
+            <field>Event__c.Venue__c</field>
+        </column>
+        <column>
+            <columnTitle>Days Until Event</columnTitle>
+            <columnType>NUMBER</columnType>
+            <field>Event__c.Event_Days_Until__c</field>
+        </column>
+    </columns>
+    <filters>
+        <filter>
+            <filterCriteria>
+                <field>Event__c.Status__c</field>
+                <operator>notEqualTo</operator>
+                <value>Cancelled</value>
+            </filterCriteria>
+            <name>Not cancelled</name>
+            <type>FieldFilter</type>
+        </filter>
+    </filters>
+    <groupings>
+        <grouping>
+            <dateFieldGrouping>CALENDAR_MONTH</dateFieldGrouping>
+            <field>Event__c.Event_Date__c</field>
+        </grouping>
+    </groupings>
+    <name>Upcoming Events by Month</name>
+    <reportType>Event__c</reportType>
+    <rowLimit>0</rowLimit>
+    <timePeriodFilter>
+        <column>Event__c.Event_Date__c</column>
+        <filterType>Custom</filterType>
+        <name>Event Date</name>
+        <rangeType>UPCOMING</rangeType>
+    </timePeriodFilter>
+    <useStandardDeviation>false</useStandardDeviation>
+</Report>

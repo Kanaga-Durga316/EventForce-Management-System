@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <column>
+            <columnTitle>Venue Name</columnTitle>
+            <columnType>TEXT</columnType>
+            <field>Venue__c.Name</field>
+        </column>
+        <column>
+            <columnTitle>Status</columnTitle>
+            <columnType>PICKLIST</columnType>
+            <field>Venue__c.Status__c</field>
+        </column>
+        <column>
+            <columnTitle>City</columnTitle>
+            <columnType>TEXT</columnType>
+            <field>Venue__c.City__c</field>
+        </column>
+        <column>
+            <columnTitle>Capacity</columnTitle>
+            <columnType>NUMBER</columnType>
+            <field>Venue__c.Capacity__c</field>
+        </column>
+    </columns>
+    <groupings>
+        <grouping>
+            <field>Venue__c.Status__c</field>
+        </grouping>
+    </groupings>
+    <name>Venue Availability</name>
+    <reportType>Venue__c</reportType>
+    <rowLimit>0</rowLimit>
+    <useStandardDeviation>false</useStandardDeviation>
+</Report>

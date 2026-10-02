@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor__c</fullName>
+    <description>Salesforce allows only one master-detail relationship per object, therefore the vendor is a lookup. See the deployment guide.</description>
+    <label>Vendor</label>
+    <referenceTo>Vendor__c</referenceTo>
+    <relationshipLabel>Event Vendors</relationshipLabel>
+    <relationshipName>EventVendors</relationshipName>
+    <type>Lookup</type>
+</CustomField>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Event Planner Management System - the working app of the EventForce Management System: events, clients, vendors, venues, feedback, reports and dashboards.</description>
+    <formFactors>
+        <formFactor>Desktop</formFactor>
+        <formFactor>Mobile</formFactor>
+    </formFactors>
+    <isNavigationPreference>false</isNavigationPreference>
+    <label>Event Planner Management System</label>
+    <navItems>
+        <name>Event__c</name>
+    </navItems>
+    <navItems>
+        <name>Client__c</name>
+    </navItems>
+    <navItems>
+        <name>Vendor__c</name>
+    </navItems>
+    <navItems>
+        <name>Venue__c</name>
+    </navItems>
+    <navItems>
+        <name>Feedback__c</name>
+    </navItems>
+    <navItems>
+        <name>standard-reports</name>
+    </navItems>
+    <navItems>
+        <name>standard-dashboards</name>
+    </navItems>
+    <tab>Event__c</tab>
+    <tab>Client__c</tab>
+    <tab>Vendor__c</tab>
+    <tab>Venue__c</tab>
+    <tab>Feedback__c</tab>
+    <tab>standard-reports</tab>
+    <tab>standard-dashboards</tab>
+</CustomApplication>

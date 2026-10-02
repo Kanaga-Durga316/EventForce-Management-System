@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <description>A venue must be able to host at least one person.</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(Capacity__c)), Capacity__c &lt; 1)</errorConditionFormula>
+    <errorDisplayField>Venue__c.Capacity__c</errorDisplayField>
+    <errorMessage>The capacity of a venue must be at least 1.</errorMessage>
+    <fullName>Capacity_Must_Be_Positive</fullName>
+</ValidationRule>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <description>Every event must be linked to a client.</description>
+    <errorConditionFormula>ISBLANK(Client__c)</errorConditionFormula>
+    <errorDisplayField>Event__c.Client__c</errorDisplayField>
+    <errorMessage>Select the client this event is organised for.</errorMessage>
+    <fullName>Client_Required</fullName>
+</ValidationRule>

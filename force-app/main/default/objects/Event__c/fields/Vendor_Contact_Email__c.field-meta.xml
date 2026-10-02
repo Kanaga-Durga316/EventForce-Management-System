@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_Contact_Email__c</fullName>
+    <description>Email of the vendor contact that is allowed to see this event (Event_Sharing_For_Vendors).</description>
+    <label>Vendor Contact Email</label>
+    <type>Email</type>
+</CustomField>
+

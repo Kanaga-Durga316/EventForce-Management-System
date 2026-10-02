@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Indicator__c</fullName>
+    <description>Read only indicator of the event status, used on dashboards and list views.</description>
+    <formula>CASE(Status__c,&quot;Draft&quot;,&quot;DRAFT - PLANNING&quot;,&quot;Pending Cancellation&quot;,&quot;CANCELLATION PENDING APPROVAL&quot;,&quot;Confirmed&quot;,&quot;CONFIRMED&quot;,&quot;Cancelled&quot;,&quot;CANCELLED&quot;,&quot;Completed&quot;,&quot;COMPLETED&quot;,&quot;UNKNOWN&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Status Indicator</label>
+    <length>255</length>
+    <type>Text</type>
+</CustomField>
+

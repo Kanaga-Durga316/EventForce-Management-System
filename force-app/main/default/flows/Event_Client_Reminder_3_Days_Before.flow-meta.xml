@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>SendClientReminder</name>
+        <label>Send Client Reminder Email</label>
+        <locationX>700</locationX>
+        <locationY>250</locationY>
+        <actionName>sendEmail</actionName>
+        <actionType>sendEmail</actionType>
+        <connector>
+            <targetReference>EndReminder</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>EventForce reminder: your event is in 3 days</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>Dear event contact,&lt;br/&gt;&lt;br/&gt;This is a friendly reminder that the event &lt;b&gt;{!$Record.Name}&lt;/b&gt; takes place on &lt;b&gt;{!$Record.Event_Date__c}&lt;/b&gt;.&lt;br/&gt;&lt;br/&gt;Venue: {!$Record.Venue__c}&lt;br/&gt;&lt;br/&gt;Kind regards,&lt;br/&gt;EventForce Event Planner Management System</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailRecipients</name>
+            <value>
+                <formulaReference>{!$Record.Client_Email__c}</formulaReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <assignments>
+        <name>EndReminder</name>
+        <label>End Reminder</label>
+        <locationX>700</locationX>
+        <locationY>420</locationY>
+        <assignmentItems>
+            <assignToReference>{!$ReminderSent}</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector/>
+    </assignments>
+    <decisions>
+        <name>Is_Event_Still_Upcoming</name>
+        <label>Event Is Still Upcoming</label>
+        <locationX>430</locationX>
+        <locationY>200</locationY>
+        <defaultConnector>
+            <targetReference>EndReminder</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Skip Reminder</defaultConnectorLabel>
+        <rules>
+            <name>Upcoming</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>{!$Record.Is_Upcoming__c}</leftValueReference>
+                <operator>EqualTo</operator>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </conditions>
+            <conditions>
+                <leftValueReference>{!$Record.Status__c}</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <value>
+                    <stringValue>Cancelled</stringValue>
+                </value>
+            </conditions>
+            <label>Is Upcoming And Not Cancelled</label>
+        </rules>
+        <connector>
+            <targetReference>SendClientReminder</targetReference>
+        </connector>
+    </decisions>
+    <interviewLabel>EventForce {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Event - Client Reminder 3 Days Before</label>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Is_Event_Still_Upcoming</targetReference>
+        </connector>
+        <recordTriggeredFlow apiVersion="62.0" label="Send a client reminder 3 days before the event date">
+            <actionName>Create</actionName>
+            <filterLogic>1 AND 2</filterLogic>
+            <filters>
+                <field>Event__c.Is_Upcoming__c</field>
+                <operator>EqualTo</operator>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </filters>
+            <filters>
+                <field>Event__c.Status__c</field>
+                <operator>NotEqualTo</operator>
+                <value>
+                    <stringValue>Cancelled</stringValue>
+                </value>
+            </filters>
+            <getInputOutputPath>/now</getInputOutputPath>
+            <object>Event__c</object>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+            <triggerType>RecordAfterSave</triggerType>
+        </recordTriggeredFlow>
+        <scheduledPaths>
+            <name>Reminder_3_Days_Before</name>
+            <label>Reminder 3 Days Before</label>
+            <connector>
+                <targetReference>Is_Event_Still_Upcoming</targetReference>
+            </connector>
+            <timeTrigger>
+                <field>Event__c.Event_Date__c</field>
+                <timeOffset>-3</timeOffset>
+            </timeTrigger>
+        </scheduledPaths>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>ReminderSent</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+</Flow>

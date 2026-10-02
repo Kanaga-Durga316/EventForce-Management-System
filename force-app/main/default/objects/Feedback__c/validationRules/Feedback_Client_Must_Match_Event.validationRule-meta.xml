@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <description>Feedback must be given by the client of the related event.</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(Client__c)), NOT(ISBLANK(Event__r.Client__c)), Client__c &lt;&gt; Event__r.Client__c)</errorConditionFormula>
+    <errorDisplayField>Feedback__c.Client__c</errorDisplayField>
+    <errorMessage>Feedback can only be given by the client of the related event.</errorMessage>
+    <fullName>Feedback_Client_Must_Match_Event</fullName>
+</ValidationRule>

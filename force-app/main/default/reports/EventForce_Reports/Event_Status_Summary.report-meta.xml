@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <column>
+            <columnTitle>Status</columnTitle>
+            <columnType>PICKLIST</columnType>
+            <field>Event__c.Status__c</field>
+        </column>
+        <column>
+            <aggregate>SUM</aggregate>
+            <columnTitle>Count of Records</columnTitle>
+            <columnType>NUMBER</columnType>
+            <field>Id</field>
+        </column>
+    </columns>
+    <groupings>
+        <grouping>
+            <field>Event__c.Status__c</field>
+        </grouping>
+    </groupings>
+    <name>Event Status Summary</name>
+    <reportType>Event__c</reportType>
+    <rowLimit>0</rowLimit>
+    <useStandardDeviation>false</useStandardDeviation>
+</Report>

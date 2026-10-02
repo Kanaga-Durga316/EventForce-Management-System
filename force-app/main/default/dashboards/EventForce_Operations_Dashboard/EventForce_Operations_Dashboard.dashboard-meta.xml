@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dashboard xmlns="http://soap.sforce.com/2006/04/metadata">
+    <components>
+        <component>
+            <column>1</column>
+            <columnSpan>4</columnSpan>
+            <componentType>Report</componentType>
+            <height>6</height>
+            <report>Upcoming Events by Month</report>
+            <row>1</row>
+            <rowSpan>2</rowSpan>
+            <type>Report</type>
+        </component>
+        <component>
+            <column>1</column>
+            <columnSpan>2</columnSpan>
+            <componentType>Report</componentType>
+            <height>6</height>
+            <report>Event Status Summary</report>
+            <row>3</row>
+            <rowSpan>2</rowSpan>
+            <type>Report</type>
+        </component>
+        <component>
+            <column>3</column>
+            <columnSpan>2</columnSpan>
+            <componentType>Report</componentType>
+            <height>6</height>
+            <report>Venue Availability</report>
+            <row>3</row>
+            <rowSpan>2</rowSpan>
+            <type>Report</type>
+        </component>
+        <component>
+            <column>1</column>
+            <columnSpan>4</columnSpan>
+            <componentType>Report</componentType>
+            <height>6</height>
+            <report>Vendor Assignments by Event</report>
+            <row>5</row>
+            <rowSpan>2</rowSpan>
+            <type>Report</type>
+        </component>
+    </components>
+    <dashboardRefreshInterval>0</dashboardRefreshInterval>
+    <name>EventForce Operations Dashboard</name>
+    <type>Specified</type>
+</Dashboard>

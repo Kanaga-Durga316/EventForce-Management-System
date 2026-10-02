@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duration_Days__c</fullName>
+    <description>Number of days the event lasts. 0 when start or end date is not set.</description>
+    <formula>IF(OR(ISBLANK(Start_Date__c),ISBLANK(End_Date__c)),0,End_Date__c - Start_Date__c + 1)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Duration (Days)</label>
+    <precision>0</precision>
+    <scale>0</scale>
+    <type>Number</type>
+</CustomField>
+

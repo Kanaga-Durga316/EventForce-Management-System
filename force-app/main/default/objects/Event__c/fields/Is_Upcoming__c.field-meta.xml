@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Upcoming__c</fullName>
+    <description>TRUE for current and future events. Used as filter of the client reminder flow.</description>
+    <formula>IF(ISBLANK(Event_Date__c),FALSE(),TODAY() &lt;= Event_Date__c)</formula>
+    <label>Upcoming Event</label>
+    <type>Checkbox</type>
+</CustomField>
+

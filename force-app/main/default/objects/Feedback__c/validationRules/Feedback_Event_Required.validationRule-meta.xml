@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <description>Feedback without an event has no meaning.</description>
+    <errorConditionFormula>ISBLANK(Event__c)</errorConditionFormula>
+    <errorDisplayField>Feedback__c.Event__c</errorDisplayField>
+    <errorMessage>Select the event this feedback belongs to.</errorMessage>
+    <fullName>Feedback_Event_Required</fullName>
+</ValidationRule>

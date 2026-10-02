@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeActions>
+        <actions>
+            <action>Approve_Set_Status_Cancelled</action>
+        </actions>
+        <finalActions>
+            <action>Final_Rejection_Restore_Status</action>
+        </finalActions>
+    </activeActions>
+    <allowRecall>true</allowRecall>
+    <allowSubmitRejection>true</allowSubmitRejection>
+    <description>Event cancellation of EventForce. The requester sets the status to Pending Cancellation and submits the record. An approved cancellation sets the status to Cancelled (VenueStatusHelper then releases the venue), a rejected cancellation restores the previous status.</description>
+    <entryCriteria>
+        <criteria>AND(ISPICKVAL(Status__c, "Pending Cancellation"), Cancellation_Reason__c != null)</criteria>
+    </entryCriteria>
+    <fieldUpdates>
+        <fieldUpdate>
+            <name>Approve_Set_Status_Cancelled</name>
+            <label>Approve - Set Status to Cancelled</label>
+            <fieldToUpdate>Status__c</fieldToUpdate>
+            <formula>"Cancelled"</formula>
+            <processStatus>Approved</processStatus>
+        </fieldUpdate>
+        <fieldUpdate>
+            <name>Final_Rejection_Restore_Status</name>
+            <label>Final Rejection - Restore Status</label>
+            <fieldToUpdate>Status__c</fieldToUpdate>
+            <formula>"Confirmed"</formula>
+            <processStatus>Rejected</processStatus>
+        </fieldUpdate>
+    </fieldUpdates>
+    <label>Event Cancellation Approval</label>
+    <nextApprover>managers</nextApprover>
+    <processType>StandardApprovalProcess</processType>
+</ApprovalProcess>

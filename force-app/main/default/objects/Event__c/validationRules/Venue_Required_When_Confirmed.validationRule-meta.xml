@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <description>A venue is mandatory as soon as the event is confirmed, because the venue is booked automatically.</description>
+    <errorConditionFormula>AND(ISPICKVAL(Status__c, "Confirmed"), ISBLANK(Venue__c))</errorConditionFormula>
+    <errorDisplayField>Event__c.Venue__c</errorDisplayField>
+    <errorMessage>Select a venue before confirming the event. A confirmed event always holds a venue.</errorMessage>
+    <fullName>Venue_Required_When_Confirmed</fullName>
+</ValidationRule>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <column>
+            <columnTitle>Vendor</columnTitle>
+            <columnType>REF</columnType>
+            <field>EventVendor__c.Vendor__c</field>
+        </column>
+        <column>
+            <columnTitle>Event</columnTitle>
+            <columnType>REF</columnType>
+            <field>EventVendor__c.Event__c</field>
+        </column>
+        <column>
+            <columnTitle>Role</columnTitle>
+            <columnType>TEXT</columnType>
+            <field>EventVendor__c.Role__c</field>
+        </column>
+        <column>
+            <columnTitle>Assignment Status</columnTitle>
+            <columnType>PICKLIST</columnType>
+            <field>EventVendor__c.Assignment_Status__c</field>
+        </column>
+    </columns>
+    <groupings>
+        <grouping>
+            <field>EventVendor__c.Vendor__c</field>
+        </grouping>
+    </groupings>
+    <name>Vendor Assignments by Event</name>
+    <reportType>EventVendor__c</reportType>
+    <rowLimit>0</rowLimit>
+    <useStandardDeviation>false</useStandardDeviation>
+</Report>
